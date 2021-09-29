@@ -91,32 +91,25 @@ int a[N];
 // }
 void solve()
 {
- 
- int n,k;
- cin>>n>>k;
- vi v(n);
- int neg=0;
- priority_queue<int,vector<int>,greater<int>>pq;
+   int n;
+   cin>>n;
+ vl v(n);
  fo(i,n)
- {
  cin>>v[i];
- pq.push(v[i]);
- }
- while(k--)
- {
-     int x=pq.top();
-     pq.pop();
-     x=-1*x;
-     pq.push(x);
- }
- ll int ans=0;
- while(!pq.empty())
- {
-  ans+=pq.top();
-  pq.pop();
- }
- cout<<ans<<endl;
 
+ int q;
+ cin>>q;
+ll l=0;
+ ll pre=0;
+ while(q--)
+ {
+     ll w,h;
+     cin>>w>>h;
+    cout<<max(l+pre,v[w-1])<<endl;
+    l=max(l+pre,v[w-1])+h;
+ }
+
+ 
 
 }
 
