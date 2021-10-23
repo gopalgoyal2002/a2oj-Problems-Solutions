@@ -1,0 +1,2 @@
+#include<bits/stdc++.h>
+using namespace std;int v[150009],n,h,k,mn=15000009,sum;int main(){cin>>n>>k;for(int i=1;i<=n;i++){cin>>h;v[i]=v[i-1]+h;if(i>=k&&v[i]-v[i-k]<mn)mn=v[i]-v[i-k],sum=i-k+1;}cout<<sum;}   
