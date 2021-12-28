@@ -89,6 +89,28 @@ int a[N];
 //     x_rep=y_rep;
 
 // }
+int find(vector<pair<int,int>>&v,int val)
+{
+    int low=0;
+    int high=v.size()-1;
+    int mid;
+    while(low<=high)
+    {
+        mid=(low+high)/2;
+        if(v[mid].first==val&&(mid==0||v[mid-1]!=val))
+        {
+            return mid;
+        }
+        else if(v[mid].first<=val)
+        {
+            low=mid+1;    
+        }
+        else{
+            high=mid-1;
+        }
+    }
+}
+
 void solve()
 {
   int n,k;
@@ -106,7 +128,7 @@ void solve()
   vector<int>vv;
   for(int i=1;i<n;i++)
   {
-       int ind=(int)(lower_bound(v.begin(), v.end(), i) - v.begin());
+       int ind=find(v,i);
       
       if(v[ind].first==i)
       {
